@@ -7,3 +7,5 @@ export const SUBMISSION_FORM_URL =
 
 export const SHEET_URL =
   'https://docs.google.com/spreadsheets/d/1GlTKmD_-RLVcunF431RjXJn_65KA4o-Mx57DHlXZZ8E/edit?gid=0#gid=0';
+
+export const POLLING_DURATION_MS = 4 * 60 * 60 * 1000; // 4 hours

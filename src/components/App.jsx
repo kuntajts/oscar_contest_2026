@@ -4,7 +4,7 @@ import CategoryCard from './CategoryCard';
 import Leaderboard from './Leaderboard';
 import Admin from './Admin';
 import { fetchSheetData, fetchNominees, fetchWinners } from '../utils/api';
-import { TARGET_DATE, SHEET_URL } from '../utils/config';
+import { TARGET_DATE, SHEET_URL, POLLING_DURATION_MS } from '../utils/config';
 
 function App() {
   const [currentRoute, setCurrentRoute] = useState(window.location.hash);
@@ -51,10 +51,13 @@ function App() {
 
     pollData();
 
-    let intervalId;
-    if (new Date().getTime() >= TARGET_DATE) {
-      intervalId = setInterval(pollData, 30000); // 30 sec polling
-    }
+    const intervalId = setInterval(() => {
+      const now = new Date().getTime();
+      const endTime = TARGET_DATE + POLLING_DURATION_MS;
+      if (now >= TARGET_DATE && now <= endTime) {
+        pollData();
+      }
+    }, 30000); // Check every 30 seconds
 
     return () => {
       if (intervalId) clearInterval(intervalId);
