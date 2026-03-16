@@ -29,8 +29,3 @@ jobs:
           git add public/winners.json
           git commit -m "Admin: Update Oscar winners" || echo "No changes to commit"
           git push origin main
-
-      - name: Trigger Deployment
-        run: gh workflow run deploy.yml
-        env:
-          GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN || github.token }}
