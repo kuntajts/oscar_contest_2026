@@ -9,7 +9,7 @@ const GITHUB_REPO = import.meta.env.VITE_GITHUB_REPO;
 function Admin() {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [nominees, setNominees] = useState([]);
+  const [nominees, setNominees] = useState({});
   const [winners, setWinners] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -130,7 +130,7 @@ function Admin() {
     );
   }
 
-  if (nominees.length === 0) {
+  if (Object.keys(nominees).length === 0) {
     return <p className="loading-state">Loading categories...</p>;
   }
 
@@ -148,70 +148,66 @@ function Admin() {
 
       <div className="dashboard-grid" style={{ display: 'block' }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          {nominees.map((category) => (
-            <div
-              key={category.id}
-              className="card"
-              style={{ marginBottom: '1.5rem' }}
-            >
-              <div className="card-header">
-                <h3>{category.name}</h3>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '0.75rem',
-                }}
-              >
-                {category.nominees.map((nominee) => {
-                  const current = winners[category.id];
-                  const currentIds = Array.isArray(current)
-                    ? current
-                    : current
-                      ? [current]
-                      : [];
-                  const isChecked = currentIds.includes(nominee.id);
+          {Object.entries(nominees)
+            .sort(([idA], [idB]) => parseInt(idA) - parseInt(idB))
+            .map(([id, category]) => (
+              <div key={id} className="card" style={{ marginBottom: '1.5rem' }}>
+                <div className="card-header">
+                  <h3>{category.name}</h3>
+                </div>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.75rem',
+                  }}
+                >
+                  {Object.values(category.nominees).map((nominee) => {
+                    const current = winners[id];
+                    const currentIds = Array.isArray(current)
+                      ? current
+                      : current
+                        ? [current]
+                        : [];
+                    const isChecked = currentIds.includes(nominee.id);
 
-                  return (
-                    <label
-                      key={nominee.id}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.75rem',
-                        cursor: 'pointer',
-                        padding: '0.5rem',
-                        borderRadius: '6px',
-                        background: isChecked
-                          ? 'rgba(212, 175, 55, 0.1)'
-                          : 'transparent',
-                      }}
-                    >
-                      <input
-                        type="checkbox"
-                        className="admin-checkbox"
-                        checked={isChecked}
-                        onChange={() =>
-                          handleWinnerChange(category.id, nominee.id)
-                        }
-                        style={{ accentColor: 'var(--accent-gold)' }}
-                      />
-                      <span
+                    return (
+                      <label
+                        key={nominee.id}
                         style={{
-                          color: isChecked
-                            ? 'var(--accent-gold)'
-                            : 'var(--text-primary)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.75rem',
+                          cursor: 'pointer',
+                          padding: '0.5rem',
+                          borderRadius: '6px',
+                          background: isChecked
+                            ? 'rgba(212, 175, 55, 0.1)'
+                            : 'transparent',
                         }}
                       >
-                        {nominee.name}
-                      </span>
-                    </label>
-                  );
-                })}
+                        <input
+                          type="checkbox"
+                          className="admin-checkbox"
+                          checked={isChecked}
+                          onChange={() => handleWinnerChange(id, nominee.id)}
+                          style={{ accentColor: 'var(--accent-gold)' }}
+                        />
+                        <span
+                          style={{
+                            color: isChecked
+                              ? 'var(--accent-gold)'
+                              : 'var(--text-primary)',
+                          }}
+                        >
+                          {nominee.name}
+                        </span>
+                      </label>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
 
           <div
             style={{

@@ -10,7 +10,7 @@ function App() {
   const [currentRoute, setCurrentRoute] = useState(window.location.hash);
   const [dataUpdatedTime, setDataUpdatedTime] = useState(null);
   const [predictions, setPredictions] = useState([]);
-  const [nominees, setNominees] = useState([]);
+  const [nominees, setNominees] = useState({});
   const [winners, setWinners] = useState({});
   const [expandedCategories, setExpandedCategories] = useState({});
   const [isMobile, setIsMobile] = useState(
@@ -80,8 +80,8 @@ function App() {
   const collapseAll = () => {
     setLastToggledId(null);
     const collapsedState = {};
-    nominees.forEach((c) => {
-      collapsedState[c.id] = false;
+    Object.keys(nominees).forEach((id) => {
+      collapsedState[id] = false;
     });
     setExpandedCategories(collapsedState);
   };
@@ -96,7 +96,7 @@ function App() {
 
       <div className="dashboard-grid">
         <main className="categories-list">
-          {nominees.length > 0 && isMobile && (
+          {Object.keys(nominees).length > 0 && isMobile && (
             <div
               style={{
                 display: 'flex',
@@ -113,23 +113,24 @@ function App() {
               </button>
             </div>
           )}
-          {nominees.length === 0 ? (
+          {Object.keys(nominees).length === 0 ? (
             <p className="loading-state">Loading categories...</p>
           ) : (
-            nominees.map((category) => (
-              <CategoryCard
-                key={category.id}
-                category={category}
-                predictions={predictions}
-                winners={winners}
-                isExpanded={
-                  !isMobile || (expandedCategories[category.id] ?? true)
-                }
-                shouldScroll={lastToggledId === category.id}
-                onToggle={() => isMobile && toggleCategory(category.id)}
-                isMobile={isMobile}
-              />
-            ))
+            Object.entries(nominees)
+              .sort(([idA], [idB]) => parseInt(idA) - parseInt(idB))
+              .map(([id, category]) => (
+                <CategoryCard
+                  key={id}
+                  id={id}
+                  category={category}
+                  predictions={predictions}
+                  winners={winners}
+                  isExpanded={!isMobile || (expandedCategories[id] ?? true)}
+                  shouldScroll={lastToggledId === id}
+                  onToggle={() => isMobile && toggleCategory(id)}
+                  isMobile={isMobile}
+                />
+              ))
           )}
         </main>
 

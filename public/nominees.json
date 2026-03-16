@@ -1,670 +1,670 @@
-[
-  {
+{
+  "1": {
     "id": 1,
     "name": "Best Picture",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "101": {
         "id": 101,
         "name": "Bugonia"
       },
-      {
+      "102": {
         "id": 102,
         "name": "F1"
       },
-      {
+      "103": {
         "id": 103,
         "name": "Frankenstein"
       },
-      {
+      "104": {
         "id": 104,
         "name": "Hamnet"
       },
-      {
+      "105": {
         "id": 105,
         "name": "Marty Supreme"
       },
-      {
+      "106": {
         "id": 106,
         "name": "One Battle After Another"
       },
-      {
+      "107": {
         "id": 107,
         "name": "The Secret Agent"
       },
-      {
+      "108": {
         "id": 108,
         "name": "Sentimental Value"
       },
-      {
+      "109": {
         "id": 109,
         "name": "Sinners"
       },
-      {
+      "110": {
         "id": 110,
         "name": "Train Dreams"
       }
-    ]
+    }
   },
-  {
+  "2": {
     "id": 2,
     "name": "Directing",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "201": {
         "id": 201,
         "name": "Paul Thomas Anderson (One Battle After Another)"
       },
-      {
+      "202": {
         "id": 202,
         "name": "Ryan Coogler (Sinners)"
       },
-      {
+      "203": {
         "id": 203,
         "name": "Josh Safdie (Marty Supreme)"
       },
-      {
+      "204": {
         "id": 204,
         "name": "Joachim Trier (Sentimental Value)"
       },
-      {
+      "205": {
         "id": 205,
         "name": "Chloé Zhao (Hamnet)"
       }
-    ]
+    }
   },
-  {
+  "3": {
     "id": 3,
     "name": "Actor in a Leading Role",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "301": {
         "id": 301,
         "name": "Timothée Chalamet (Marty Supreme)"
       },
-      {
+      "302": {
         "id": 302,
         "name": "Leonardo DiCaprio (One Battle After Another)"
       },
-      {
+      "303": {
         "id": 303,
         "name": "Ethan Hawke (Blue Moon)"
       },
-      {
+      "304": {
         "id": 304,
         "name": "Michael B. Jordan (Sinners)"
       },
-      {
+      "305": {
         "id": 305,
         "name": "Wagner Moura (The Secret Agent)"
       }
-    ]
+    }
   },
-  {
+  "4": {
     "id": 4,
     "name": "Actress in a Leading Role",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "401": {
         "id": 401,
         "name": "Jessie Buckley (Hamnet)"
       },
-      {
+      "402": {
         "id": 402,
         "name": "Rose Byrne (If I Had Legs I'd Kick You)"
       },
-      {
+      "403": {
         "id": 403,
         "name": "Kate Hudson (Song Sung Blue)"
       },
-      {
+      "404": {
         "id": 404,
         "name": "Renate Reinsve (Sentimental Value)"
       },
-      {
+      "405": {
         "id": 405,
         "name": "Emma Stone (Bugonia)"
       }
-    ]
+    }
   },
-  {
+  "5": {
     "id": 5,
     "name": "Actor in a Supporting Role",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "501": {
         "id": 501,
         "name": "Benicio del Toro (One Battle After Another)"
       },
-      {
+      "502": {
         "id": 502,
         "name": "Jacob Elordi (Frankenstein)"
       },
-      {
+      "503": {
         "id": 503,
         "name": "Delroy Lindo (Sinners)"
       },
-      {
+      "504": {
         "id": 504,
         "name": "Sean Penn (One Battle After Another)"
       },
-      {
+      "505": {
         "id": 505,
         "name": "Stellan Skarsgård (Sentimental Value)"
       }
-    ]
+    }
   },
-  {
+  "6": {
     "id": 6,
     "name": "Actress in a Supporting Role",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "601": {
         "id": 601,
         "name": "Elle Fanning (Sentimental Value)"
       },
-      {
+      "602": {
         "id": 602,
         "name": "Inga Ibsdotter Lilleaas (Sentimental Value)"
       },
-      {
+      "603": {
         "id": 603,
         "name": "Amy Madigan (Weapons)"
       },
-      {
+      "604": {
         "id": 604,
         "name": "Wunmi Mosaku (Sinners)"
       },
-      {
+      "605": {
         "id": 605,
         "name": "Teyana Taylor (One Battle After Another)"
       }
-    ]
+    }
   },
-  {
+  "7": {
     "id": 7,
     "name": "Original Screenplay",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "701": {
         "id": 701,
         "name": "Blue Moon"
       },
-      {
+      "702": {
         "id": 702,
         "name": "It Was Just an Accident"
       },
-      {
+      "703": {
         "id": 703,
         "name": "Marty Supreme"
       },
-      {
+      "704": {
         "id": 704,
         "name": "Sentimental Value"
       },
-      {
+      "705": {
         "id": 705,
         "name": "Sinners"
       }
-    ]
+    }
   },
-  {
+  "8": {
     "id": 8,
     "name": "Adapted Screenplay",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "801": {
         "id": 801,
         "name": "Bugonia"
       },
-      {
+      "802": {
         "id": 802,
         "name": "Frankenstein"
       },
-      {
+      "803": {
         "id": 803,
         "name": "Hamnet"
       },
-      {
+      "804": {
         "id": 804,
         "name": "One Battle After Another"
       },
-      {
+      "805": {
         "id": 805,
         "name": "Train Dreams"
       }
-    ]
+    }
   },
-  {
+  "9": {
     "id": 9,
     "name": "Animated Feature Film",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "901": {
         "id": 901,
         "name": "Arco"
       },
-      {
+      "902": {
         "id": 902,
         "name": "Elio"
       },
-      {
+      "903": {
         "id": 903,
         "name": "KPop Demon Hunters"
       },
-      {
+      "904": {
         "id": 904,
         "name": "Little Amélie or the Character of Rain"
       },
-      {
+      "905": {
         "id": 905,
         "name": "Zootopia 2"
       }
-    ]
+    }
   },
-  {
+  "10": {
     "id": 10,
     "name": "International Feature Film",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1001": {
         "id": 1001,
         "name": "It Was Just an Accident (France)"
       },
-      {
+      "1002": {
         "id": 1002,
         "name": "The Secret Agent (Brazil)"
       },
-      {
+      "1003": {
         "id": 1003,
         "name": "Sentimental Value (Norway)"
       },
-      {
+      "1004": {
         "id": 1004,
         "name": "Sirāt (Spain)"
       },
-      {
+      "1005": {
         "id": 1005,
         "name": "The Voice of Hind Rajab (Tunisia)"
       }
-    ]
+    }
   },
-  {
+  "11": {
     "id": 11,
     "name": "Documentary Feature Film",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1101": {
         "id": 1101,
         "name": "The Alabama Solution"
       },
-      {
+      "1102": {
         "id": 1102,
         "name": "Come See Me in the Good Light"
       },
-      {
+      "1103": {
         "id": 1103,
         "name": "Cutting Through Rocks"
       },
-      {
+      "1104": {
         "id": 1104,
         "name": "Mr. Nobody Against Putin"
       },
-      {
+      "1105": {
         "id": 1105,
         "name": "The Perfect Neighbor"
       }
-    ]
+    }
   },
-  {
+  "12": {
     "id": 12,
     "name": "Casting (New Category)",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1201": {
         "id": 1201,
         "name": "Hamnet"
       },
-      {
+      "1202": {
         "id": 1202,
         "name": "Marty Supreme"
       },
-      {
+      "1203": {
         "id": 1203,
         "name": "One Battle After Another"
       },
-      {
+      "1204": {
         "id": 1204,
         "name": "The Secret Agent"
       },
-      {
+      "1205": {
         "id": 1205,
         "name": "Sinners"
       }
-    ]
+    }
   },
-  {
+  "13": {
     "id": 13,
     "name": "Cinematography",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1301": {
         "id": 1301,
         "name": "Frankenstein"
       },
-      {
+      "1302": {
         "id": 1302,
         "name": "Marty Supreme"
       },
-      {
+      "1303": {
         "id": 1303,
         "name": "One Battle After Another"
       },
-      {
+      "1304": {
         "id": 1304,
         "name": "Sinners"
       },
-      {
+      "1305": {
         "id": 1305,
         "name": "Train Dreams"
       }
-    ]
+    }
   },
-  {
+  "14": {
     "id": 14,
     "name": "Film Editing",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1401": {
         "id": 1401,
         "name": "F1"
       },
-      {
+      "1402": {
         "id": 1402,
         "name": "Marty Supreme"
       },
-      {
+      "1403": {
         "id": 1403,
         "name": "One Battle After Another"
       },
-      {
+      "1404": {
         "id": 1404,
         "name": "Sentimental Value"
       },
-      {
+      "1405": {
         "id": 1405,
         "name": "Sinners"
       }
-    ]
+    }
   },
-  {
+  "15": {
     "id": 15,
     "name": "Production Design",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1501": {
         "id": 1501,
         "name": "Frankenstein"
       },
-      {
+      "1502": {
         "id": 1502,
         "name": "Hamnet"
       },
-      {
+      "1503": {
         "id": 1503,
         "name": "Marty Supreme"
       },
-      {
+      "1504": {
         "id": 1504,
         "name": "One Battle After Another"
       },
-      {
+      "1505": {
         "id": 1505,
         "name": "Sinners"
       }
-    ]
+    }
   },
-  {
+  "16": {
     "id": 16,
     "name": "Costume Design",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1601": {
         "id": 1601,
         "name": "Avatar: Fire and Ash"
       },
-      {
+      "1602": {
         "id": 1602,
         "name": "Frankenstein"
       },
-      {
+      "1603": {
         "id": 1603,
         "name": "Hamnet"
       },
-      {
+      "1604": {
         "id": 1604,
         "name": "Marty Supreme"
       },
-      {
+      "1605": {
         "id": 1605,
         "name": "Sinners"
       }
-    ]
+    }
   },
-  {
+  "17": {
     "id": 17,
     "name": "Makeup and Hairstyling",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1701": {
         "id": 1701,
         "name": "Frankenstein"
       },
-      {
+      "1702": {
         "id": 1702,
         "name": "Kokuho"
       },
-      {
+      "1703": {
         "id": 1703,
         "name": "Sinners"
       },
-      {
+      "1704": {
         "id": 1704,
         "name": "The Smashing Machine"
       },
-      {
+      "1705": {
         "id": 1705,
         "name": "The Ugly Stepsister"
       }
-    ]
+    }
   },
-  {
+  "18": {
     "id": 18,
     "name": "Original Score",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1801": {
         "id": 1801,
         "name": "Bugonia"
       },
-      {
+      "1802": {
         "id": 1802,
         "name": "Frankenstein"
       },
-      {
+      "1803": {
         "id": 1803,
         "name": "Hamnet"
       },
-      {
+      "1804": {
         "id": 1804,
         "name": "One Battle After Another"
       },
-      {
+      "1805": {
         "id": 1805,
         "name": "Sinners"
       }
-    ]
+    }
   },
-  {
+  "19": {
     "id": 19,
     "name": "Original Song",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "1901": {
         "id": 1901,
         "name": "\"Dear Me\" (Diane Warren: Relentless)"
       },
-      {
+      "1902": {
         "id": 1902,
         "name": "\"Golden\" (KPop Demon Hunters)"
       },
-      {
+      "1903": {
         "id": 1903,
         "name": "\"I Lied To You\" (Sinners)"
       },
-      {
+      "1904": {
         "id": 1904,
         "name": "\"Sweet Dreams of Joy\" (Viva Verdi!)"
       },
-      {
+      "1905": {
         "id": 1905,
         "name": "\"Train Dreams\" (Train Dreams)"
       }
-    ]
+    }
   },
-  {
+  "20": {
     "id": 20,
     "name": "Sound",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "2001": {
         "id": 2001,
         "name": "F1"
       },
-      {
+      "2002": {
         "id": 2002,
         "name": "Frankenstein"
       },
-      {
+      "2003": {
         "id": 2003,
         "name": "One Battle After Another"
       },
-      {
+      "2004": {
         "id": 2004,
         "name": "Sinners"
       },
-      {
+      "2005": {
         "id": 2005,
         "name": "Sirāt"
       }
-    ]
+    }
   },
-  {
+  "21": {
     "id": 21,
     "name": "Visual Effects",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "2101": {
         "id": 2101,
         "name": "Avatar: Fire and Ash"
       },
-      {
+      "2102": {
         "id": 2102,
         "name": "F1"
       },
-      {
+      "2103": {
         "id": 2103,
         "name": "Jurassic World Rebirth"
       },
-      {
+      "2104": {
         "id": 2104,
         "name": "The Lost Bus"
       },
-      {
+      "2105": {
         "id": 2105,
         "name": "Sinners"
       }
-    ]
+    }
   },
-  {
+  "22": {
     "id": 22,
     "name": "Live Action Short Film",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "2201": {
         "id": 2201,
         "name": "Butcher's Stain"
       },
-      {
+      "2202": {
         "id": 2202,
         "name": "A Friend of Dorothy"
       },
-      {
+      "2203": {
         "id": 2203,
         "name": "Jane Austen's Period Drama"
       },
-      {
+      "2204": {
         "id": 2204,
         "name": "The Singers"
       },
-      {
+      "2205": {
         "id": 2205,
         "name": "Two People Exchanging Saliva"
       }
-    ]
+    }
   },
-  {
+  "23": {
     "id": 23,
     "name": "Animated Short Film",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "2301": {
         "id": 2301,
         "name": "Butterfly"
       },
-      {
+      "2302": {
         "id": 2302,
         "name": "Forevergreen"
       },
-      {
+      "2303": {
         "id": 2303,
         "name": "The Girl Who Cried Pearls"
       },
-      {
+      "2304": {
         "id": 2304,
         "name": "Retirement Plan"
       },
-      {
+      "2305": {
         "id": 2305,
         "name": "The Three Sisters"
       }
-    ]
+    }
   },
-  {
+  "24": {
     "id": 24,
     "name": "Documentary Short Film",
     "points": 10,
-    "nominees": [
-      {
+    "nominees": {
+      "2401": {
         "id": 2401,
         "name": "All the Empty Rooms"
       },
-      {
+      "2402": {
         "id": 2402,
         "name": "Armed Only with a Camera: The Life and Death of Brent Renaud"
       },
-      {
+      "2403": {
         "id": 2403,
         "name": "Children No More: Were and Are Gone"
       },
-      {
+      "2404": {
         "id": 2404,
         "name": "The Devil Is Busy"
       },
-      {
+      "2405": {
         "id": 2405,
         "name": "Perfectly a Strangeness"
       }
-    ]
+    }
   }
-]
+}

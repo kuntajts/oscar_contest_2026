@@ -13,21 +13,22 @@ export default function Leaderboard({
     let score = 0;
 
     // Calculate score based on winners
-    nominees.forEach((category) => {
-      const winnerData = winners[category.id];
+    Object.entries(nominees).forEach(([id, category]) => {
+      const winnerData = winners[id];
       if (winnerData) {
         const winnerIds = Array.isArray(winnerData)
           ? winnerData
           : winnerData
             ? [winnerData]
             : [];
-        const winnerNominees = category.nominees.filter((n) =>
+        const winnerNominees = Object.values(category.nominees).filter((n) =>
           winnerIds.includes(n.id)
         );
 
         if (winnerNominees.length > 0) {
-          const matched = winnerNominees.some(
-            (wn) => p[category.name] === wn.name
+          const predictionId = p[id];
+          const matched = winnerIds.some(
+            (wid) => String(wid) === String(predictionId)
           );
           if (matched) {
             score += category.points;

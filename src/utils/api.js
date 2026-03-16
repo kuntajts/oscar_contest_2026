@@ -14,7 +14,22 @@ export async function fetchSheetData(url) {
         header: true,
         skipEmptyLines: true,
         complete: (results) => {
-          resolve(results.data);
+          const transformed = results.data.map((row) => {
+            const newRow = {};
+            for (const key in row) {
+              const cleanedKey = key.trim();
+              if (cleanedKey === 'Timestamp' || cleanedKey === 'Full Name') {
+                newRow[cleanedKey] = row[key];
+              } else {
+                // Extract ID from [#ID] Name or use the key directly if it's numeric
+                const match = cleanedKey.match(/\[#(\d+)\]/);
+                const id = match ? match[1] : cleanedKey;
+                newRow[id] = row[key];
+              }
+            }
+            return newRow;
+          });
+          resolve(transformed);
         },
         error: (error) => {
           console.error('Error fetching or parsing sheet:', error);

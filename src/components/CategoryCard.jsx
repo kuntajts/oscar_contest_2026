@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
 export default function CategoryCard({
+  id,
   category,
   predictions,
   winners = {},
@@ -14,16 +15,17 @@ export default function CategoryCard({
   const chartInstance = useRef(null);
   const cardRef = useRef(null);
 
-  const winnerData = winners[category.id];
+  const winnerData = winners[id];
   const winnerIds = Array.isArray(winnerData)
-    ? winnerData
+    ? winnerData.map(String)
     : winnerData
-      ? [winnerData]
+      ? [String(winnerData)]
       : [];
-  const winnerNominees = category.nominees.filter((n) =>
-    winnerIds.includes(n.id)
+
+  const hasWinner = winnerIds.length > 0;
+  const winnerNominees = Object.values(category.nominees).filter((n) =>
+    winnerIds.includes(String(n.id))
   );
-  const hasWinner = winnerNominees.length > 0;
 
   // Scroll into view when expanded
   useEffect(() => {
@@ -38,24 +40,25 @@ export default function CategoryCard({
     }
   }, [isExpanded, isMobile, shouldScroll]);
 
-  const votes = {};
-  category.nominees.forEach((n) => {
-    votes[n.name] = 0;
+  // Aggregate votes by nominee ID
+  const votesById = {};
+  const sortedNomineeIds = Object.keys(category.nominees).sort(
+    (a, b) => parseInt(a) - parseInt(b)
+  );
+
+  sortedNomineeIds.forEach((nid) => {
+    votesById[nid] = 0;
   });
 
   predictions.forEach((p) => {
-    const choice = p[category.name];
-    if (choice) {
-      if (votes[choice] !== undefined) {
-        votes[choice]++;
-      } else {
-        votes[choice] = 1;
-      }
+    const choiceId = String(p[id]);
+    if (votesById[choiceId] !== undefined) {
+      votesById[choiceId]++;
     }
   });
 
-  const labels = Object.keys(votes);
-  const data = labels.map((k) => votes[k]);
+  const labels = sortedNomineeIds.map((nid) => category.nominees[nid].name);
+  const voteCounts = sortedNomineeIds.map((nid) => votesById[nid]);
 
   const colors = [
     '#D4AF37',
@@ -72,10 +75,9 @@ export default function CategoryCard({
     '#f43f5e',
   ];
 
-  const chartColors = labels.map((name, i) => {
+  const chartColors = sortedNomineeIds.map((nid, i) => {
     if (!hasWinner) return colors[i % colors.length];
-    const isWinner = winnerNominees.some((wn) => wn.name === name);
-    return isWinner ? '#e5e7eb' : 'rgba(128, 128, 128, 0.1)';
+    return winnerIds.includes(nid) ? '#e5e7eb' : 'rgba(128, 128, 128, 0.1)';
   });
 
   useEffect(() => {
@@ -91,7 +93,7 @@ export default function CategoryCard({
           labels,
           datasets: [
             {
-              data,
+              data: voteCounts,
               backgroundColor: chartColors,
               borderColor: hasWinner ? 'transparent' : '#1f2937',
               borderWidth: 1,
@@ -116,7 +118,7 @@ export default function CategoryCard({
         chartInstance.current.destroy();
       }
     };
-  }, [category, predictions, isExpanded, hasWinner, winnerNominees]);
+  }, [category, predictions, isExpanded, hasWinner, winnerIds]);
 
   return (
     <div
@@ -157,8 +159,8 @@ export default function CategoryCard({
               {predictions.length > 0 && (
                 <div className="winner-stats">
                   {(
-                    (winnerNominees.reduce(
-                      (acc, wn) => acc + (votes[wn.name] || 0),
+                    (winnerIds.reduce(
+                      (acc, wid) => acc + (votesById[wid] || 0),
                       0
                     ) /
                       predictions.length) *
@@ -185,15 +187,17 @@ export default function CategoryCard({
               <canvas ref={chartRef} />
             </div>
             <div className="custom-legend">
-              {labels.map((label, i) => (
-                <div key={i} className="legend-item">
+              {sortedNomineeIds.map((nid, i) => (
+                <div key={nid} className="legend-item">
                   <span
                     className="legend-color-box"
                     style={{ backgroundColor: chartColors[i] }}
                   ></span>
                   <span className="legend-text">
-                    <span className="legend-label">{label}</span>
-                    <span className="legend-value">{data[i]}</span>
+                    <span className="legend-label">
+                      {category.nominees[nid].name}
+                    </span>
+                    <span className="legend-value">{votesById[nid]}</span>
                   </span>
                 </div>
               ))}
