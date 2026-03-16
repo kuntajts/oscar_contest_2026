@@ -31,24 +31,28 @@ A premium, real-time React application for tracking predictions and winners of t
 ### Installation
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/kuntajts/oscar_contest_2026.git
    cd oscar_contest_2026
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Configure Environment Variables:**
    Create a `.env` file in the root directory and add the following:
+
    ```env
    VITE_ADMIN_PASSWORD=your_secure_password
    VITE_GITHUB_OWNER=your_github_username
    VITE_GITHUB_REPO=your_repository_name
    VITE_GITHUB_TOKEN=your_github_personal_access_token
    ```
+
    > [!IMPORTANT]
    > The `VITE_GITHUB_TOKEN` needs `workflow` permissions to trigger the winner update actions.
 
@@ -89,4 +93,4 @@ The `dist` folder is automatically served via the `gh-pages` branch or the confi
 
 ---
 
-*Made with ❤️ for the Awards Season.*
+_Made with ❤️ for the Awards Season._

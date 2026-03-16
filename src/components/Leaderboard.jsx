@@ -19,7 +19,7 @@ export default function Leaderboard({
         const winnerNominee = category.nominees.find((n) => n.id === winnerId);
         if (winnerNominee) {
           if (p[category.name] === winnerNominee.name) {
-            score += 10;
+            score += category.points;
           }
         }
       }

@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Best Picture",
+    "points": 10,
     "nominees": [
       {
         "id": 101,
@@ -48,6 +49,7 @@
   {
     "id": 2,
     "name": "Directing",
+    "points": 10,
     "nominees": [
       {
         "id": 201,
@@ -67,17 +69,18 @@
       },
       {
         "id": 205,
-        "name": "Chlo\u00e9 Zhao (Hamnet)"
+        "name": "Chloé Zhao (Hamnet)"
       }
     ]
   },
   {
     "id": 3,
     "name": "Actor in a Leading Role",
+    "points": 10,
     "nominees": [
       {
         "id": 301,
-        "name": "Timoth\u00e9e Chalamet (Marty Supreme)"
+        "name": "Timothée Chalamet (Marty Supreme)"
       },
       {
         "id": 302,
@@ -100,6 +103,7 @@
   {
     "id": 4,
     "name": "Actress in a Leading Role",
+    "points": 10,
     "nominees": [
       {
         "id": 401,
@@ -126,6 +130,7 @@
   {
     "id": 5,
     "name": "Actor in a Supporting Role",
+    "points": 10,
     "nominees": [
       {
         "id": 501,
@@ -145,13 +150,14 @@
       },
       {
         "id": 505,
-        "name": "Stellan Skarsg\u00e5rd (Sentimental Value)"
+        "name": "Stellan Skarsgård (Sentimental Value)"
       }
     ]
   },
   {
     "id": 6,
     "name": "Actress in a Supporting Role",
+    "points": 10,
     "nominees": [
       {
         "id": 601,
@@ -178,6 +184,7 @@
   {
     "id": 7,
     "name": "Original Screenplay",
+    "points": 10,
     "nominees": [
       {
         "id": 701,
@@ -204,6 +211,7 @@
   {
     "id": 8,
     "name": "Adapted Screenplay",
+    "points": 10,
     "nominees": [
       {
         "id": 801,
@@ -230,6 +238,7 @@
   {
     "id": 9,
     "name": "Animated Feature Film",
+    "points": 10,
     "nominees": [
       {
         "id": 901,
@@ -245,7 +254,7 @@
       },
       {
         "id": 904,
-        "name": "Little Am\u00e9lie or the Character of Rain"
+        "name": "Little Amélie or the Character of Rain"
       },
       {
         "id": 905,
@@ -256,6 +265,7 @@
   {
     "id": 10,
     "name": "International Feature Film",
+    "points": 10,
     "nominees": [
       {
         "id": 1001,
@@ -271,7 +281,7 @@
       },
       {
         "id": 1004,
-        "name": "Sir\u0101t (Spain)"
+        "name": "Sirāt (Spain)"
       },
       {
         "id": 1005,
@@ -282,6 +292,7 @@
   {
     "id": 11,
     "name": "Documentary Feature Film",
+    "points": 10,
     "nominees": [
       {
         "id": 1101,
@@ -308,6 +319,7 @@
   {
     "id": 12,
     "name": "Casting (New Category)",
+    "points": 10,
     "nominees": [
       {
         "id": 1201,
@@ -334,6 +346,7 @@
   {
     "id": 13,
     "name": "Cinematography",
+    "points": 10,
     "nominees": [
       {
         "id": 1301,
@@ -360,6 +373,7 @@
   {
     "id": 14,
     "name": "Film Editing",
+    "points": 10,
     "nominees": [
       {
         "id": 1401,
@@ -386,6 +400,7 @@
   {
     "id": 15,
     "name": "Production Design",
+    "points": 10,
     "nominees": [
       {
         "id": 1501,
@@ -412,6 +427,7 @@
   {
     "id": 16,
     "name": "Costume Design",
+    "points": 10,
     "nominees": [
       {
         "id": 1601,
@@ -438,6 +454,7 @@
   {
     "id": 17,
     "name": "Makeup and Hairstyling",
+    "points": 10,
     "nominees": [
       {
         "id": 1701,
@@ -464,6 +481,7 @@
   {
     "id": 18,
     "name": "Original Score",
+    "points": 10,
     "nominees": [
       {
         "id": 1801,
@@ -490,6 +508,7 @@
   {
     "id": 19,
     "name": "Original Song",
+    "points": 10,
     "nominees": [
       {
         "id": 1901,
@@ -516,6 +535,7 @@
   {
     "id": 20,
     "name": "Sound",
+    "points": 10,
     "nominees": [
       {
         "id": 2001,
@@ -535,13 +555,14 @@
       },
       {
         "id": 2005,
-        "name": "Sir\u0101t"
+        "name": "Sirāt"
       }
     ]
   },
   {
     "id": 21,
     "name": "Visual Effects",
+    "points": 10,
     "nominees": [
       {
         "id": 2101,
@@ -568,6 +589,7 @@
   {
     "id": 22,
     "name": "Live Action Short Film",
+    "points": 10,
     "nominees": [
       {
         "id": 2201,
@@ -594,6 +616,7 @@
   {
     "id": 23,
     "name": "Animated Short Film",
+    "points": 10,
     "nominees": [
       {
         "id": 2301,
@@ -620,6 +643,7 @@
   {
     "id": 24,
     "name": "Documentary Short Film",
+    "points": 10,
     "nominees": [
       {
         "id": 2401,

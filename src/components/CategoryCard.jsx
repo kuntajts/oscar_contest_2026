@@ -112,29 +112,20 @@ export default function CategoryCard({
   return (
     <div
       ref={cardRef}
-      className="card category-card"
-      style={{
-        borderColor: winnerNominee
-          ? 'var(--accent-gold)'
-          : 'var(--border-color)',
-        boxShadow: winnerNominee ? '0 0 15px rgba(212, 175, 55, 0.1)' : 'none',
-      }}
+      className={`card category-card ${winnerNominee ? 'has-winner' : ''}`}
     >
       <h3
-        className="text-gold card-header"
+        className={`card-header category-card-header ${
+          winnerNominee ? 'text-gold' : ''
+        } ${isMobile ? 'is-mobile' : ''}`}
         onClick={isMobile ? onToggle : undefined}
-        style={{
-          cursor: isMobile ? 'pointer' : 'default',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          userSelect: isMobile ? 'none' : 'auto',
-          color: winnerNominee ? 'var(--accent-gold)' : 'var(--text-primary)',
-        }}
       >
-        <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <span className="category-title">
           {category.name}
           {winnerNominee && <span style={{ fontSize: '0.8em' }}>✅</span>}
+          {winnerNominee && (
+            <span className="points-badge">{category.points} pts</span>
+          )}
         </span>
         {isMobile && (
           <span style={{ fontSize: '0.8em', color: 'var(--text-secondary)' }}>
@@ -144,42 +135,14 @@ export default function CategoryCard({
       </h3>
       {isExpanded && (
         <>
-          {winnerNominee && (
-            <div
-              style={{
-                textAlign: 'center',
-                padding: '0.75rem',
-                marginBottom: '0.75rem',
-                background: 'rgba(212, 175, 55, 0.1)',
-                borderRadius: '8px',
-                border: '1px solid rgba(212, 175, 55, 0.2)',
-              }}
-            >
-              <span
-                style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}
-              >
-                WINNER
-              </span>
-              <div
-                style={{
-                  fontSize: '2rem',
-                  fontWeight: '800',
-                  color: 'var(--accent-gold)',
-                  lineHeight: '1.2',
-                }}
-              >
-                {winnerNominee.name}
+          {winnerNominee ? (
+            <div className="winner-container">
+              <div className="winner-header">
+                <span className="winner-label">WINNER</span>
               </div>
+              <div className="winner-name">{winnerNominee.name}</div>
               {predictions.length > 0 && (
-                <div
-                  style={{
-                    marginTop: '0.25rem',
-                    color: '#e5e7eb',
-                    fontSize: '0.95rem',
-                    fontWeight: '500',
-                    opacity: 0.9,
-                  }}
-                >
+                <div className="winner-stats">
                   {(
                     ((votes[winnerNominee.name] || 0) / predictions.length) *
                     100
@@ -187,6 +150,14 @@ export default function CategoryCard({
                   % of participants correctly predicted this
                 </div>
               )}
+            </div>
+          ) : (
+            <div className="no-winner-info">
+              Correct prediction earns{' '}
+              <span style={{ color: 'var(--accent-gold)', fontWeight: 'bold' }}>
+                {category.points}
+              </span>{' '}
+              points
             </div>
           )}
           <div
