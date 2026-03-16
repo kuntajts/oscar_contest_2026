@@ -2,7 +2,7 @@
   "name": "oscar_contest_2026",
   "homepage": "https://kuntajts.github.io/oscar_contest_2026",
   "version": "1.0.0",
-  "description": "A react-based polling for 2026 Oscar Winners",
+  "description": "A react-based polling for Academy Award Winners",
   "type": "module",
   "scripts": {
     "dev": "vite",
