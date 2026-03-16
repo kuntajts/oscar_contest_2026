@@ -14,8 +14,16 @@ export default function CategoryCard({
   const chartInstance = useRef(null);
   const cardRef = useRef(null);
 
-  const winnerId = winners[category.id];
-  const winnerNominee = category.nominees.find((n) => n.id === winnerId);
+  const winnerData = winners[category.id];
+  const winnerIds = Array.isArray(winnerData)
+    ? winnerData
+    : winnerData
+      ? [winnerData]
+      : [];
+  const winnerNominees = category.nominees.filter((n) =>
+    winnerIds.includes(n.id)
+  );
+  const hasWinner = winnerNominees.length > 0;
 
   // Scroll into view when expanded
   useEffect(() => {
@@ -65,8 +73,9 @@ export default function CategoryCard({
   ];
 
   const chartColors = labels.map((name, i) => {
-    if (!winnerNominee) return colors[i % colors.length];
-    return name === winnerNominee.name ? '#e5e7eb' : 'rgba(128, 128, 128, 0.1)';
+    if (!hasWinner) return colors[i % colors.length];
+    const isWinner = winnerNominees.some((wn) => wn.name === name);
+    return isWinner ? '#e5e7eb' : 'rgba(128, 128, 128, 0.1)';
   });
 
   useEffect(() => {
@@ -84,7 +93,7 @@ export default function CategoryCard({
             {
               data,
               backgroundColor: chartColors,
-              borderColor: winnerNominee ? 'transparent' : '#1f2937',
+              borderColor: hasWinner ? 'transparent' : '#1f2937',
               borderWidth: 1,
             },
           ],
@@ -107,23 +116,23 @@ export default function CategoryCard({
         chartInstance.current.destroy();
       }
     };
-  }, [category, predictions, isExpanded, winnerNominee]);
+  }, [category, predictions, isExpanded, hasWinner, winnerNominees]);
 
   return (
     <div
       ref={cardRef}
-      className={`card category-card ${winnerNominee ? 'has-winner' : ''}`}
+      className={`card category-card ${hasWinner ? 'has-winner' : ''}`}
     >
       <h3
         className={`card-header category-card-header ${
-          winnerNominee ? 'text-gold' : ''
+          hasWinner ? 'text-gold' : ''
         } ${isMobile ? 'is-mobile' : ''}`}
         onClick={isMobile ? onToggle : undefined}
       >
         <span className="category-title">
           {category.name}
-          {winnerNominee && <span style={{ fontSize: '0.8em' }}>✅</span>}
-          {winnerNominee && (
+          {hasWinner && <span style={{ fontSize: '0.8em' }}>✅</span>}
+          {hasWinner && (
             <span className="points-badge">{category.points} pts</span>
           )}
         </span>
@@ -135,16 +144,24 @@ export default function CategoryCard({
       </h3>
       {isExpanded && (
         <>
-          {winnerNominee ? (
+          {hasWinner ? (
             <div className="winner-container">
               <div className="winner-header">
-                <span className="winner-label">WINNER</span>
+                <span className="winner-label">
+                  {winnerNominees.length > 1 ? 'WINNERS' : 'WINNER'}
+                </span>
               </div>
-              <div className="winner-name">{winnerNominee.name}</div>
+              <div className="winner-name">
+                {winnerNominees.map((wn) => wn.name).join(' & ')}
+              </div>
               {predictions.length > 0 && (
                 <div className="winner-stats">
                   {(
-                    ((votes[winnerNominee.name] || 0) / predictions.length) *
+                    (winnerNominees.reduce(
+                      (acc, wn) => acc + (votes[wn.name] || 0),
+                      0
+                    ) /
+                      predictions.length) *
                     100
                   ).toFixed(1)}
                   % of participants correctly predicted this
@@ -162,7 +179,7 @@ export default function CategoryCard({
           )}
           <div
             className="chart-container"
-            style={{ opacity: winnerNominee ? 0.9 : 1 }}
+            style={{ opacity: hasWinner ? 0.9 : 1 }}
           >
             <div className="canvas-wrapper">
               <canvas ref={chartRef} />

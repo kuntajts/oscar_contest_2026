@@ -32,10 +32,26 @@ function Admin() {
   };
 
   const handleWinnerChange = (categoryId, nomineeId) => {
-    setWinners((prev) => ({
-      ...prev,
-      [categoryId]: nomineeId,
-    }));
+    setWinners((prev) => {
+      const current = prev[categoryId];
+      const currentIds = Array.isArray(current)
+        ? current
+        : current
+          ? [current]
+          : [];
+
+      let nextIds;
+      if (currentIds.includes(nomineeId)) {
+        nextIds = currentIds.filter((id) => id !== nomineeId);
+      } else {
+        nextIds = [...currentIds, nomineeId];
+      }
+
+      return {
+        ...prev,
+        [categoryId]: nextIds.length === 1 ? nextIds[0] : nextIds,
+      };
+    });
   };
 
   const handleSubmit = async () => {
@@ -148,44 +164,51 @@ function Admin() {
                   gap: '0.75rem',
                 }}
               >
-                {category.nominees.map((nominee) => (
-                  <label
-                    key={nominee.id}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      cursor: 'pointer',
-                      padding: '0.5rem',
-                      borderRadius: '6px',
-                      background:
-                        winners[category.id] === nominee.id
+                {category.nominees.map((nominee) => {
+                  const current = winners[category.id];
+                  const currentIds = Array.isArray(current)
+                    ? current
+                    : current
+                      ? [current]
+                      : [];
+                  const isChecked = currentIds.includes(nominee.id);
+
+                  return (
+                    <label
+                      key={nominee.id}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.75rem',
+                        cursor: 'pointer',
+                        padding: '0.5rem',
+                        borderRadius: '6px',
+                        background: isChecked
                           ? 'rgba(212, 175, 55, 0.1)'
                           : 'transparent',
-                    }}
-                  >
-                    <input
-                      type="radio"
-                      name={`category-${category.id}`}
-                      value={nominee.id}
-                      checked={winners[category.id] === nominee.id}
-                      onChange={() =>
-                        handleWinnerChange(category.id, nominee.id)
-                      }
-                      style={{ accentColor: 'var(--accent-gold)' }}
-                    />
-                    <span
-                      style={{
-                        color:
-                          winners[category.id] === nominee.id
-                            ? 'var(--accent-gold)'
-                            : 'var(--text-primary)',
                       }}
                     >
-                      {nominee.name}
-                    </span>
-                  </label>
-                ))}
+                      <input
+                        type="checkbox"
+                        className="admin-checkbox"
+                        checked={isChecked}
+                        onChange={() =>
+                          handleWinnerChange(category.id, nominee.id)
+                        }
+                        style={{ accentColor: 'var(--accent-gold)' }}
+                      />
+                      <span
+                        style={{
+                          color: isChecked
+                            ? 'var(--accent-gold)'
+                            : 'var(--text-primary)',
+                        }}
+                      >
+                        {nominee.name}
+                      </span>
+                    </label>
+                  );
+                })}
               </div>
             </div>
           ))}
